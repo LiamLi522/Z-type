@@ -27,13 +27,22 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - 云端底座：Supabase 作品表、偏好表、通知偏好、AI 任务表、订阅表。
 - AI 接口：`/api/ai/font-fix`，未配置模型时会自动回退到规则建议。
 
-## 还需要你补齐的条件
+## 部署和数据库
 
-1. 在 Supabase 执行 [supabase/schema.sql](/Users/lishangzu/Downloads/z-type-pro/supabase/schema.sql)。
-2. 在部署平台配置 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_ANON_KEY`。
-3. 配置邮箱登录、密码重置回调地址和生产域名。
-4. 如果要启用真实 AI，再加 `OPENAI_API_KEY` 和可选的 `OPENAI_MODEL`。
-5. 如果后续要做订阅付费，再接支付网关与 webhook。
+Cloudflare Workers:
+
+```bash
+npm run upload
+```
+
+Supabase:
+
+```bash
+SUPABASE_DB_URL="postgresql://..." npm run db:setup
+npm run db:check
+```
+
+部署平台需要配置 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_ANON_KEY`。邮箱登录和密码重置还需要在 Supabase Auth 里加入生产域名与 `/auth` 回调地址。如果要启用真实 AI，再加 `OPENAI_API_KEY` 和可选的 `OPENAI_MODEL`。
 
 ## Learn More
 
