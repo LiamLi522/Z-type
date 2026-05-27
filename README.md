@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## z-type 现在具备什么
+
+- 现代化工作台：布局预设、字体搜索、收藏、最近使用、A4 预览、PDF 导出。
+- 账号入口：注册、登录、重置密码、退出登录。
+- 云端底座：Supabase 作品表、偏好表、通知偏好、AI 任务表、订阅表。
+- AI 接口：`/api/ai/font-fix`，未配置模型时会自动回退到规则建议。
+
+## 还需要你补齐的条件
+
+1. 在 Supabase 执行 [supabase/schema.sql](/Users/lishangzu/Downloads/z-type-pro/supabase/schema.sql)。
+2. 在部署平台配置 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_ANON_KEY`。
+3. 配置邮箱登录、密码重置回调地址和生产域名。
+4. 如果要启用真实 AI，再加 `OPENAI_API_KEY` 和可选的 `OPENAI_MODEL`。
+5. 如果后续要做订阅付费，再接支付网关与 webhook。
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
